@@ -49,7 +49,7 @@ export function createMap(container, { onClick }) {
         type: 'line',
         source: 'route',
         layout: { 'line-join': 'round', 'line-cap': 'butt' },
-        paint: { 'line-color': ROUTE_COLOR, 'line-width': 4, 'line-dasharray': [3, 2] },
+        paint: { 'line-color': ROUTE_COLOR, 'line-width': 4 },
       });
       resolve();
     }),
