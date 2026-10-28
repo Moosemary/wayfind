@@ -1,0 +1,132 @@
+:root {
+  --black: #0d0d0d;
+  --grey-900: #161616;
+  --grey-800: #1f1f1f;
+  --grey-700: #2c2c2c;
+  --grey-500: #7a7a7a;
+  --grey-300: #b5b5b5;
+  --white: #f5f5f5;
+  --yellow: #ffd400;
+  --font: 'DM Mono', ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font);
+  font-size: 13px;
+}
+
+#map { position: fixed; inset: 0; }
+
+.panel {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  width: min(360px, calc(100vw - 32px));
+  padding: 18px;
+  background: rgba(13, 13, 13, 0.92);
+  border: 1px solid var(--grey-700);
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  z-index: 2;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+}
+.brand-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--yellow); }
+
+.fields { display: flex; flex-direction: column; gap: 8px; }
+
+.field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 4px 4px 14px;
+  background: var(--grey-800);
+  border: 1px solid var(--grey-700);
+  border-radius: 999px;
+  transition: border-color 0.15s;
+}
+.field:focus-within, .field.picking { border-color: var(--yellow); }
+
+.field-dot { flex: none; width: 10px; height: 10px; border-radius: 50%; }
+.field-dot-from { background: var(--white); }
+.field-dot-to { border: 2px solid var(--white); }
+
+.field input {
+  flex: 1;
+  min-width: 0;
+  padding: 9px 0;
+  background: none;
+  border: 0;
+  outline: 0;
+  color: var(--white);
+  font: inherit;
+}
+.field input::placeholder { color: var(--grey-500); }
+
+.pill {
+  padding: 8px 16px;
+  background: var(--grey-800);
+  border: 1px solid var(--grey-700);
+  border-radius: 999px;
+  color: var(--white);
+  font: inherit;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.pill:hover { border-color: var(--grey-500); }
+.pill:focus-visible { outline: 2px solid var(--yellow); outline-offset: 2px; }
+.pill-small { padding: 6px 12px; font-size: 11px; background: var(--grey-700); border-color: transparent; }
+.field.picking .pill-small { background: var(--yellow); color: var(--black); }
+
+.actions { display: flex; gap: 8px; margin-top: 12px; }
+
+.summary {
+  display: flex;
+  gap: 24px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--grey-700);
+}
+.summary > div { display: flex; flex-direction: column; gap: 4px; font-size: 16px; color: var(--yellow); }
+.label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--grey-500); }
+
+.message { margin: 14px 0 0; color: var(--yellow); line-height: 1.5; }
+
+.suggestions {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: var(--grey-900);
+  border: 1px solid var(--grey-700);
+  border-radius: 20px;
+  z-index: 5;
+}
+.suggestions li { padding: 9px 12px; border-radius: 999px; cursor: pointer; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.suggestions li:hover { background: var(--grey-700); }
+
+.marker svg { display: block; }
+
+.mapboxgl-ctrl-group { background: var(--grey-900); border-radius: 999px !important; overflow: hidden; }
+.mapboxgl-ctrl-group button + button { border-top: 1px solid var(--grey-700); }
+.mapboxgl-ctrl-icon { filter: invert(1); }
+.mapboxgl-ctrl-attrib { background: rgba(13, 13, 13, 0.7) !important; font-family: var(--font); }
+.mapboxgl-ctrl-attrib a { color: var(--grey-500) !important; }

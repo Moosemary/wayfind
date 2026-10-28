@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111111" />
+    <title>Wayfind</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <aside class="panel" aria-label="Route planner">
+      <h1 class="brand"><span class="brand-dot"></span>WAYFIND</h1>
+
+      <div class="fields">
+        <div class="field" id="field-from"></div>
+        <div class="field" id="field-to"></div>
+      </div>
+
+      <div class="actions">
+        <button class="pill" id="swap" type="button">Swap</button>
+        <button class="pill" id="clear" type="button">Clear</button>
+      </div>
+
+      <div class="summary" id="summary" hidden>
+        <div><span class="label">Distance</span><span id="distance"></span></div>
+        <div><span class="label">Time</span><span id="duration"></span></div>
+      </div>
+
+      <p class="message" id="message" role="status" hidden></p>
+    </aside>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
