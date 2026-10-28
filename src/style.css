@@ -45,7 +45,7 @@ html, body {
   font-weight: 500;
   letter-spacing: 0.24em;
 }
-.brand-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--yellow); }
+.brand-arrow { flex: none; }
 
 .fields { display: flex; flex-direction: column; gap: 8px; }
 

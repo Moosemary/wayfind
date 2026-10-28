@@ -2,7 +2,7 @@ import mapboxgl from 'mapbox-gl';
 import { token } from './api.js';
 import { startMarkerEl, endMarkerEl } from './icons.js';
 
-const YELLOW = '#ffd400';
+const ROUTE_COLOR = '#ffffff';
 
 // Mapbox Dark is restyled at runtime towards a flat dark grey palette.
 function restyle(map) {
@@ -49,7 +49,7 @@ export function createMap(container, { onClick }) {
         type: 'line',
         source: 'route',
         layout: { 'line-join': 'round', 'line-cap': 'butt' },
-        paint: { 'line-color': YELLOW, 'line-width': 4, 'line-dasharray': [3, 2] },
+        paint: { 'line-color': ROUTE_COLOR, 'line-width': 4, 'line-dasharray': [3, 2] },
       });
       resolve();
     }),
